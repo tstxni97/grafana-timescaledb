@@ -21,5 +21,6 @@ services:
     ports:
       - 55435:5432
     environment:
+      # default user postgres
       POSTGRES_DB: "db"
       POSTGRES_PASSWORD: "password"
