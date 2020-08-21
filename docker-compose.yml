@@ -4,21 +4,14 @@ services:
   grafana:
     hostname: grafana
     image: grafana/grafana:7.1.4
-    networks:
-      - internal
-      - external
     expose:
       - 3000
     ports:
       - 3000:3000
 
   timescaledb:
-    hostname: postgres
+    hostname: timescaledb
     image: timescale/timescaledb:latest-pg12
-    networks:
-      internal:
-        aliases:
-          - postgres
     expose:
       - 5432
     ports:
@@ -27,6 +20,3 @@ services:
       POSTGRES_DB: "db"
       POSTGRES_PASSWORD: "password"
 
-networks:
-  external:
-  internal:
